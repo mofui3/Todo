@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Context>
+
+<Resource defaultAutoCommit="false" password="1701" username="root" url="jdbc:mysql://127.0.0.1:3306/test" type="javax.sql.DataSource" name="jdbc/localDB" maxWaitMillis="-1" maxIdle="1" initialSize="1" driverClassName="org.mariadb.jdbc.Driver"/>
+
+</Context>
