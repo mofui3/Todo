@@ -83,6 +83,24 @@ window.onload = function() {
 						</select>
 					</td>
 				</tr>
+
+				<c:if test="${dto.id != 0 }">
+					<tr>
+						<th>添付ファイル</th>
+						<td>
+							<a href="preUpload?id<c:out value="${dto.id}"/>" class="btn btn-primary">アップロード</a>
+							<c:choose>
+								<c:when test="${dto.filename != null}" >
+									<c:out value="${dto.filename}" />
+								</c:when>
+								<c:otherwise>
+									添付ファイルはありません
+								</c:otherwise>
+							</c:choose>
+						</td>
+					</tr>
+				</c:if>
+
 			</table>
 			<input type="hidden" name="id" value="<c:out value="${dto.id}" />" />
 			<input type="hidden" name="token" value="<c:out value="${token}" />" />
