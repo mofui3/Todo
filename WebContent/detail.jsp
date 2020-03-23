@@ -88,7 +88,7 @@ window.onload = function() {
 					<tr>
 						<th>添付ファイル</th>
 						<td>
-							<a href="preUpload?id<c:out value="${dto.id}"/>" class="btn btn-primary">アップロード</a>
+							<a href="preUpload?id=<c:out value="${dto.id}"/>" class="btn btn-primary">アップロード</a>
 							<c:choose>
 								<c:when test="${dto.filename != null}" >
 									<c:out value="${dto.filename}" />
