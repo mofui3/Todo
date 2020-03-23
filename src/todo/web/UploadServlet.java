@@ -17,7 +17,7 @@ import todo.dto.Todo;
  * Servlet implementation class UploadServlet
  */
 @WebServlet( urlPatterns={"/todo/upload"})
-@MultipartConfig( location="C:upload")
+@MultipartConfig( location="D:/Documents/Todo/Todo/WebContent/upload_img/")
 public class UploadServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -26,7 +26,7 @@ public class UploadServlet extends HttpServlet {
 	protected void doPost( HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		//	<Input type="file" name"uploadfile">からMultipart形式のアップロードコンテンツの内容を取得
+		//	<INPUT type="file" name="uploadfile">からMultipart形式のアップロードコンテンツの内容を取得
 		Part part = request.getPart("uploadfile");
 
 		//	アップロードされたコンテンツ(Part)からファイル名部分を示す部分を解析し、取得する。
@@ -37,7 +37,7 @@ public class UploadServlet extends HttpServlet {
 
 			if (cd.startsWith("filename")) {
 				//	ファイル名は=の右側以降の文字列。
-				//	ただし利用環境によってはだぶるぅぉーテーションが含まれているので、取り除く。
+				//	ただし利用環境によってはダブルクォーテーションが含まれているので、取り除く。
 				filename = cd.substring(cd.indexOf("=") +1).trim().replace("\"", "");
 				log("upload file:" + filename);
 				break;
