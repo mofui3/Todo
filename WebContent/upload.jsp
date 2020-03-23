@@ -8,6 +8,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
+	<jsp:include page="header.jsp" />
+<head>
+<meta charset="UTF-8">
 <title>アップロード画面</title>
 <script type ="text/javascript">
 
@@ -18,7 +21,7 @@
 
 	<div class="container">
 		アップロードするファイルを選択し、[アップロード]ボタンを押してください。
-		<form name="upload" action="../todo/upload" method="post" enctype="multipart/form-date">
+		<form name="upload" action="../todo/upload" method="post" enctype="multipart/form-data">
 			<input type="file" name="uploadfile" />
 			<input type="submit" class="btn btn-primary" value="アップロード" />
 			<input type="hidden" name="id" value="<c:out value="${id}"/>" />
