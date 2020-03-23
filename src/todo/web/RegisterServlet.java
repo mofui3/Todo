@@ -56,7 +56,7 @@ public class RegisterServlet extends HttpServlet {
 				message = "タスクの新規登録が完了しました。";
 			}
 			else {
-				dao.registerInsert(dto);
+				dao.registerUpdate(dto);
 				message = "タスク[ " + id + " ]の新規登録が完了しました。";
 			}
 			setMessage(request, message);
