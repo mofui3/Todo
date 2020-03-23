@@ -11,19 +11,17 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/todo/preUpload")
 public class UploadDisplayServlet extends HttpServlet {
 
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		//リクエストパラメータからタスク番号を取得して、リクエスト属性へ格納
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//	リクエストパラメータからタスク番号を取得して、リクエスト属性へ格納
 		String idString = request.getParameter("id");
 
-	//数値に変換する
-	Integer id = Integer.parseInt(idString);
+		//	数値に変換する
+		Integer id = Integer.parseInt(idString);
 
-	//リクエスト属性へ格納
-	request.setAttribute("id", id);
+		//	リクエスト属性へ格納
+		request.setAttribute("id", id);
 
-	request.getRequestDispatcher("/upload.jsp").forward(request,response);
-
+		request.getRequestDispatcher("/upload.jsp").forward(request,response);
 
     }
 
