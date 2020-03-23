@@ -181,4 +181,34 @@ public class TodoDAO extends DAO{
 
 	}
 
+	/*
+	 * タスクに添付されるアップロードされたファイル情報を更新する。
+	 * @param vo
+	 * @throws Exception
+	 */
+
+	public int updateUploadInfo(Todo dto) throws Exception{
+		String sql = "UPDATE todo_list SET filename = ? WHERE id = ?";
+		int result = 0;
+		//	プリペアステートメントを取得し、実行SQLを渡す。
+		try {
+			PreparedStatement statement = getPreparedStatement(sql);
+			statement.setString(1, dto.getFilename());
+			statement.setInt(2, dto.getId());
+
+			//登録をおこなう。
+			result = statement.executeUpdate();
+
+			//コミットをおこなう。
+			super.commit();
+		}
+		catch(Exception e) {
+			super.rollback();
+			throw e;
+		}
+
+		return result;
+
+	}
+
 }
