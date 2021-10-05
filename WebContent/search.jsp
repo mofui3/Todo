@@ -38,11 +38,19 @@
 					<td><c:out value="${dto.userid}" /></td>
 					<td><c:out value="${dto.label}" /></td>
 					<td><a href="detail?id=<c:out value="${dto.id}" />">詳細画面へ</a></td>
-					<td></td>
+					<td>
+						<c:choose>
+							<c:when test="${dto.filename !=null}">
+								<a href="download?id=<c:out value="${dto.id}" />" class="btn btn-primary">ダウンロード</a>
+							</c:when>
+							<c:otherwise>
+								－
+							</c:otherwise>
+						</c:choose>
+					</td>
 				</tr>
 			</c:forEach>
 		</table>
-
 	</div>
 
 </body>
